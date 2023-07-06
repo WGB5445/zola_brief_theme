@@ -1,10 +1,30 @@
-{% extends "base.html" %}
+{% extends "index.html" %}
 
-{% block content %}
+{% block recent_posts %}
+    <div class="post-card">
+        <div class="post">
+            <h1 class="post-title">{{ page.title }}</h1>
+            <div class="post-meta">
+                <div class="meta-firstline">
+                    <span class="post-meta-label">Created</span>
+                    <time datetime="{{page.date}}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+                
+                    <span class="post-meta-separator">|</span>
+                    <span class="post-meta-label">Updated</span>
+                    {% if page.updated %}
+                        <time datetime="{{page.updated}}">{{ page.updated | date(format="%Y-%m-%d") }}</time>
+                        {% else %}
+                        <time datetime="{{page.date}}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+                    {% endif %}
+                    
+                </div>
 
-    <div class="post m-1">
-        <h1 class="post-title">{{ page.title }}</h1>
-            <span class="post-date">{{ page.date | date(format="%Y-%m-%d") }}</span>
-            {{ page.content | safe }}
+                
+            </div>
+            <article class="post-content" id="article-container">
+                {{ page.content | safe }}
+            </article>
+                
         </div>
-{% endblock content %}
+    </div>
+{% endblock recent_posts %}

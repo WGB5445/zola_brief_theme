@@ -11,6 +11,13 @@ taxonomies = [
     { name = "docker", feed = true},
 ]
 
+[markdown]
+# When set to "true", all code blocks are highlighted.
+highlight_code = true
+
+# A list of directories used to search for additional `.sublime-syntax` and `.tmTheme` files.
+extra_syntaxes_and_themes = []
+
 [extra]
 brief_sticky = true
 brief_reverse = false

@@ -1,9 +1,0 @@
-{% import "macros/recent_post_card.html" as macros_recent_post_card %}
-{% block recent_posts %}
-
-<div class="recent-posts">
-    {%- for page in paginator.pages %}
-        {{macros_recent_post_card::create(page=page, config=config)}}
-    {%- endfor %}
-</div>
-{% endblock recent_posts %}

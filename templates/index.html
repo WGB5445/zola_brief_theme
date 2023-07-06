@@ -1,8 +1,90 @@
-{% extends "base.html" %}
-{% block content %}
-    <main>
-      
-      {% include "layout/main/index.html" %}
+{% import "macros/recent_post_card.html" as macros_recent_post_card %}
+{% import "macros/avatar.html" as macros_avater %}
+{% import "macros/aside_list_item.html" as macros_aside_list_item %}
 
-    </main>
-{% endblock content %}
+{% extends "base.html" %}
+{% block header %}
+  <div class="header">
+      <nav class="nav">
+        <span id="blog-name">
+          <a id="site-name" href="/">{{ config.title }}</a>
+        </span>
+        <div id="menus">
+              <div class="menus_items">
+                  {% for item in config.extra.brief_menus -%}
+                      <div class="menus_item">
+                          <a class="site-page" aria-current="page" href="{{ config.base_url }}/{{ item.url }}">{{ item.name }}</a>
+                      </div>
+                  {%- endfor %}
+              </div>
+        </div>
+      </nav>
+  </div>
+{% endblock header %}
+
+
+{% block recent_posts %}
+    <div class="recent-posts">
+        {%- for page in paginator.pages %}
+            {{macros_recent_post_card::create(page=page, config=config)}}
+        {%- endfor %}
+    </div>
+{% endblock recent_posts %}
+    
+
+{% block aside_content %}
+<div class="aside-content">
+    <div class="card-info">
+        <div class="info">
+            <div class="avatar-img">
+                {% set avater_url = "https://bafkreigk6ekvsnbt4xdczonof7u3rlw2ton4lbszgwxosz2a24jiwc364y.ipfs.infura-ipfs.io/" %}
+                {% set default_avater_url = "https://bafkreigk6ekvsnbt4xdczonof7u3rlw2ton4lbszgwxosz2a24jiwc364y.ipfs.infura-ipfs.io/" %}
+                
+                {% if config.extra.avater_url %}
+                    {% set avater_url = config.extra.avater_url %}
+                {% endif %}
+
+                {% if config.extra.default_avater_url %}
+                    {% set default_avater_url = config.extra.default_avater_url %}
+                {% endif %}
+                {{macros_avater::create(url=avater_url, error_url=default_avater_url)}}
+            </div>
+        </div>
+        <div class="info-data">
+            {% set author = "Author" %}
+            {% if config.extra.author %}
+                {% set author = config.extra.author %}
+            {% endif %}
+            {{author}}
+        </div>
+        <a class="info-description">
+            {% set description = "some description" %}
+            {% if config.extra.description %}
+                {% set description = config.extra.description %}
+            {% endif %}
+            {{description}}
+        </a>
+        <div class="info-social-icons">
+            {% if config.extra.social_links %}
+
+            {% endif %}
+        </div>
+    </div>
+    <div class="card-announcement">
+        
+    </div>
+    <div class="sticky_layout">
+        <div class="card-recent-post">
+            <div class="item-headline">
+                <span>最新文章</span>
+            </div>
+            {%- set section_item = get_section(path="_index.md") %}
+            <div class="aside-list">
+                {%- for page in section_item.pages  %}
+                    {{macros_aside_list_item::create(page=page, config=config)}}
+                {%- endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock aside_content %}
