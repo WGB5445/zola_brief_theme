@@ -1,0 +1,25 @@
+{%- macro create(page, config) %}
+  <article class="recent-post-card">
+    <div class="recent-post-cover">
+
+    </div>
+    <div class="recent-post-info">
+      <a class="article-title" href="{{ page.permalink | safe }}" title="{{ page.title}}">
+        {{page.title}}
+      </a>
+      <div class="post-meta">
+        <span class="post-meta-data">
+          <span class="article-meta-label">发表于</span>
+          <time datetime="{{page.date}}">{{page.date | truncate(length=10,end="")}}</time>
+        </span>
+        <div class="content">
+          {%- if page.description %}
+            {{ page.description | safe }}
+          {%- elif page.content %}
+            {{ page.content | striptags | truncate(length=150) | safe }}
+          {%- endif %}
+        </div>
+      </div>
+    </div>
+  </article>
+{%- endmacro page_listing %}

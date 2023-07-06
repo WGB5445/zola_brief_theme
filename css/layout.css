@@ -1,0 +1,74 @@
+
+@layer base {
+    body{
+        @apply min-w-[250px]  leading-8 duration-300 text-sm text-[#4c4948];
+    }
+}
+
+
+@layer components {
+    main {
+        @apply max-w-6xl flex flex-row px-10 pt-10 mx-auto ;
+        .recent-posts{
+            @apply w-full flex flex-col gap-6;
+            .recent-post-card{
+                @apply w-full h-full flex flex-row content-center rounded-brief shadow-brief hover:shadow-brief-hover;
+                .recent-post-info{
+                  @apply w-full p-6 flex flex-col justify-center items-start ;     
+                  .article-title {
+                    @apply  w-full text-2xl line-clamp-2  hover:text-blue;
+                  }
+                  .post-meta{
+                    @apply w-full flex flex-col ;
+                        .post-meta-data{
+                          @apply w-full text-[90%] my-2;
+                        }
+                        .content{
+                            @apply line-clamp-2;
+                        }
+                  }
+                  
+                }
+            }
+        }
+
+        .aside-content{
+            @apply min-w-[220px] max-w-[300px] flex flex-col ml-7 rounded-brief shadow-brief hover:shadow-brief-hover;
+            .card-info{
+                @apply flex flex-col gap-2 justify-center items-center px-5 py-6;
+                .avatar-img{
+                    @apply h-28 w-28 rounded-full overflow-hidden
+                }
+                .info-data {
+                    @apply text-xl font-medium
+                }
+                .info-description{
+                    @apply -mt-1
+                }
+            }
+        }
+    }
+    .header{
+        @apply w-full h-16 px-9 shadow-brief;
+        #blog-name{
+            @apply font-bold text-lg;
+        }
+        .nav {
+            @apply h-full flex flex-row justify-between items-center text-sm;
+            .menus_items{
+                @apply h-full flex flex-row justify-between gap-4;
+            }
+        }
+        
+    }
+    .nav-fixed {
+        #nav {
+            position: fixed;
+            top: -60px;
+            z-index: 91;
+            background: rgba(255, 255, 255, .8);
+            box-shadow: 0 5px 6px -5px alpha;
+            transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+{% import "macros/avatar.html" as macros_avater %}
+
+{% block aside_content %}
+<div class="aside-content">
+    <div class="card-info">
+        <div class="info">
+            <div class="avatar-img">
+                {% set avater_url = "https://bafkreigk6ekvsnbt4xdczonof7u3rlw2ton4lbszgwxosz2a24jiwc364y.ipfs.infura-ipfs.io/" %}
+                {% set default_avater_url = "https://bafkreigk6ekvsnbt4xdczonof7u3rlw2ton4lbszgwxosz2a24jiwc364y.ipfs.infura-ipfs.io/" %}
+                
+                {% if config.extra.avater_url %}
+                    {% set avater_url = config.extra.avater_url %}
+                {% endif %}
+
+                {% if config.extra.default_avater_url %}
+                    {% set default_avater_url = config.extra.default_avater_url %}
+                {% endif %}
+                {{macros_avater::create(url=avater_url, error_url=default_avater_url)}}
+            </div>
+        </div>
+        <div class="info-data">
+            {% set author = "Author" %}
+            {% if config.extra.author %}
+                {% set author = config.extra.author %}
+            {% endif %}
+            {{author}}
+        </div>
+        <a class="info-description">
+            {% set description = "some description" %}
+            {% if config.extra.description %}
+                {% set description = config.extra.description %}
+            {% endif %}
+            {{description}}
+        </a>
+        <div class="info-social-icons">
+            {% if config.extra.social_links %}
+
+            {% endif %}
+        </div>
+    </div>
+    <div class="card-announcement">
+
+    </div>
+    <div class="sticky_layout">
+
+    </div>
+</div>
+{% endblock aside_content %}

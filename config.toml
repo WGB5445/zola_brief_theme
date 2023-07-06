@@ -1,0 +1,28 @@
+base_url = "https://ipfs-blog.wgb5445.cc"
+compile_sass = true
+
+title = "Brief theme"
+description = "A brief blog theme"
+generate_feed = true
+
+taxonomies = [
+    { name = "blockchain", feed = true},
+    { name = "css", feed = true},
+    { name = "docker", feed = true},
+]
+
+[extra]
+brief_sticky = true
+brief_reverse = false
+brief_theme = ""
+brief_links = [
+    {url = "https://google.com", name = "About"},
+]
+brief_menus = [
+    {url = "",name = "Home"},
+    {url = "archives",name = "Archives"},
+    {url = "tags",name = "Tags"},
+    {url = "categories",name = "Categories"},
+    {url = "link",name = "Link"},
+    {url = "about",name = "About"},
+]

@@ -1,0 +1,6 @@
+
+@layer components {
+    .btn2 {
+        @apply h-52
+    }
+}
