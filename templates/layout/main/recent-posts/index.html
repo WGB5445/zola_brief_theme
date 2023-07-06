@@ -5,15 +5,5 @@
     {%- for page in paginator.pages %}
         {{macros_recent_post_card::create(page=page, config=config)}}
     {%- endfor %}
-    {%- set section_item = get_section(path="_index.md") %}
-    {%- if config.extra.recent | default(value=true) %}
-      <div class="toc">
-        <div class="toc-sticky">
-          <h1><span class="s75">Recent Posts</span></h1>
-          {%- for page in section_item.pages  %}
-          {%- endfor %}
-        </div>
-      </div>
-    {%- endif %}
 </div>
 {% endblock recent_posts %}

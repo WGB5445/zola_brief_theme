@@ -1,4 +1,5 @@
 {% import "macros/avatar.html" as macros_avater %}
+{% import "macros/aside_list_item.html" as macros_aside_list_item %}
 
 {% block aside_content %}
 <div class="aside-content">
@@ -39,10 +40,20 @@
         </div>
     </div>
     <div class="card-announcement">
-
+        
     </div>
     <div class="sticky_layout">
-
+        <div class="card-recent-post">
+            <div class="item-headline">
+                <span>最新文章</span>
+            </div>
+            {%- set section_item = get_section(path="_index.md") %}
+            <div class="aside-list">
+                {%- for page in section_item.pages  %}
+                    {{macros_aside_list_item::create(page=page, config=config)}}
+                {%- endfor %}
+            </div>
+        </div>
     </div>
 </div>
 {% endblock aside_content %}

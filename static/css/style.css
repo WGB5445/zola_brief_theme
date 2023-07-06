@@ -638,6 +638,10 @@ main {
           .post-meta-data {
             font-size: 90%;
           }
+          .post-meta-data {
+            --tw-text-opacity: 1;
+            color: rgb(133 133 133 / var(--tw-text-opacity));
+          }
           .content {
             overflow: hidden;
             display: -webkit-box;
@@ -663,19 +667,6 @@ main {
   .aside-content {
     flex-direction: column;
   }
-  .aside-content {
-    border-radius: 0.5rem;
-  }
-  .aside-content {
-    --tw-shadow: 0 3px 8px 6px rgba(7,17,27,0.05);
-    --tw-shadow-colored: 0 3px 8px 6px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  }
-  .aside-content:hover {
-    --tw-shadow: 0 3px 8px 6px rgba(7,17,27,0.09);;
-    --tw-shadow-colored: 0 3px 8px 6px var(--tw-shadow-color);
-    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  }
   .aside-content{
     .card-info {
       display: flex;
@@ -693,12 +684,25 @@ main {
       gap: 0.5rem;
     }
     .card-info {
+      border-radius: 0.5rem;
+    }
+    .card-info {
       padding-left: 1.25rem;
       padding-right: 1.25rem;
     }
     .card-info {
       padding-top: 1.5rem;
       padding-bottom: 1.5rem;
+    }
+    .card-info {
+      --tw-shadow: 0 3px 8px 6px rgba(7,17,27,0.05);
+      --tw-shadow-colored: 0 3px 8px 6px var(--tw-shadow-color);
+      box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    }
+    .card-info:hover {
+      --tw-shadow: 0 3px 8px 6px rgba(7,17,27,0.09);;
+      --tw-shadow-colored: 0 3px 8px 6px var(--tw-shadow-color);
+      box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
     }
     .card-info{
       .avatar-img {
@@ -722,6 +726,89 @@ main {
       }
       .info-description {
         margin-top: -0.25rem;
+      }
+    }
+    .sticky_layout {
+      margin-top: 1.75rem;
+    }
+    .sticky_layout {
+      display: flex;
+    }
+    .sticky_layout {
+      flex-direction: column;
+    }
+    .sticky_layout{
+      .card-recent-post {
+        border-radius: 0.5rem;
+      }
+      .card-recent-post {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+      .card-recent-post {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+      }
+      .card-recent-post {
+        --tw-shadow: 0 3px 8px 6px rgba(7,17,27,0.05);
+        --tw-shadow-colored: 0 3px 8px 6px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+      .card-recent-post:hover {
+        --tw-shadow: 0 3px 8px 6px rgba(7,17,27,0.09);;
+        --tw-shadow-colored: 0 3px 8px 6px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+      .card-recent-post{
+        .item-headline {
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+        }
+        .item-headline {
+          font-size: 1.125rem;
+          line-height: 1.75rem;
+        }
+        .item-headline {
+          font-weight: 500;
+        }
+        .aside-list {
+          margin-top: 1.25rem;
+        }
+        .aside-list {
+          display: flex;
+        }
+        .aside-list {
+          flex-direction: column;
+        }
+        .aside-list {
+          gap: 1.25rem;
+        }
+        .aside-list{
+          .aside-list-item{
+            .content {
+              display: flex;
+            }
+            .content {
+              flex-direction: column;
+            }
+            .content {
+              font-size: 1rem;
+              line-height: 1.5rem;
+            }
+            .content{
+              .time {
+                font-size: 0.75rem;
+                line-height: 1rem;
+              }
+              .time {
+                --tw-text-opacity: 1;
+                color: rgb(133 133 133 / var(--tw-text-opacity));
+              }
+            }
+          }
+        }
       }
     }
   }
