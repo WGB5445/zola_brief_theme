@@ -21,6 +21,7 @@ extra_syntaxes_and_themes = []
 [extra]
 author="不霁何虹"
 description="A brief blog theme"
+brief_favicon="https://arweave.net/mFFcgeIoLnhzQDYAHTYHkQ1eEYVwO9XvU7GitAUnq4U"
 brief_sticky = true
 brief_reverse = false
 brief_theme = ""

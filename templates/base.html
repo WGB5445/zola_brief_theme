@@ -10,6 +10,10 @@
 
       <title>{% block title %}{{ config.title }}{% endblock title %}</title>
 
+      <!-- favicon -->
+      {% if config.extra.brief_favicon %}
+        <link rel="icon" type="image/x-icon" href="{{config.extra.brief_favicon}}">
+      {% endif %}
       <!-- CSS -->
       <!-- <link rel="stylesheet" href="{{ get_url(path="print.css", trailing_slash=false) }}" media="print"> -->
       <link rel="stylesheet" href="{{ get_url(path="style.css", trailing_slash=false) }}">
