@@ -19,6 +19,8 @@ highlight_code = true
 extra_syntaxes_and_themes = []
 
 [extra]
+author="不霁何虹"
+description="A brief blog theme"
 brief_sticky = true
 brief_reverse = false
 brief_theme = ""
