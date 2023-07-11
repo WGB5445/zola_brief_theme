@@ -3,25 +3,6 @@
 {% import "macros/aside_list_item.html" as macros_aside_list_item %}
 
 {% extends "base.html" %}
-{% block header %}
-  <div class="header">
-      <nav class="nav">
-        <span id="blog-name">
-          <a id="site-name" href="/">{{ config.title }}</a>
-        </span>
-        <div id="menus">
-              <div class="menus_items">
-                  {% for item in config.extra.brief_menus -%}
-                      <div class="menus_item">
-                          <a class="site-page" aria-current="page" href="{{ config.base_url }}/{{ item.url }}">{{ item.name }}</a>
-                      </div>
-                  {%- endfor %}
-              </div>
-        </div>
-      </nav>
-  </div>
-{% endblock header %}
-
 
 {% block recent_posts %}
     <div class="recent-posts">

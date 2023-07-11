@@ -6,9 +6,8 @@ description = "A brief blog theme"
 generate_feed = true
 
 taxonomies = [
-    { name = "blockchain", feed = true},
-    { name = "css", feed = true},
-    { name = "docker", feed = true},
+    { name = "Categories", feed = true},
+    { name = "Tags", feed = true},
 ]
 
 [markdown]

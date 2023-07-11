@@ -28,21 +28,36 @@
     </head>
 
     <body class="{{ config.extra.brief_theme }} {% if config.extra.brief_reverse %}layout-reverse{% endif %}">
-        {% block header %}
-          
-        {% endblock header %}
+      {% block header %}
+        <div class="header">
+            <nav class="nav">
+              <span id="blog-name">
+                <a id="site-name" href="/">{{ config.title }}</a>
+              </span>
+              <div id="menus">
+                    <div class="menus_items">
+                        {% for item in config.extra.brief_menus -%}
+                            <div class="menus_item">
+                                <a class="site-page" aria-current="page" href="{{ config.base_url }}/{{ item.url }}">{{ item.name }}</a>
+                            </div>
+                        {%- endfor %}
+                    </div>
+              </div>
+            </nav>
+        </div>
+      {% endblock header %}
 
-        {% block content %}
-          <main>
-            {% block main %}
-              {% block recent_posts %}
-              {% endblock recent_posts %}
-              
-              {% block aside_content %}
-              {% endblock aside_content %}
-            {% endblock main %}
-          </main>
-        {% endblock content %}
+      {% block content %}
+        <main>
+          {% block main %}
+            {% block recent_posts %}
+            {% endblock recent_posts %}
+            
+            {% block aside_content %}
+            {% endblock aside_content %}
+          {% endblock main %}
+        </main>
+      {% endblock content %}
         
 
     </body>
