@@ -38,8 +38,12 @@
                     <div class="menus_items">
                         {% for item in config.extra.brief_menus -%}
                             <div class="menus_item">
-                                <a class="site-page" aria-current="page" href="{{ config.base_url }}/{{ item.url }}">{{ item.name }}</a>
-                            </div>
+                                {% if config.base_url == "/" %}
+                                  <a class="site-page" aria-current="page" href="/{{ item.url }}">{{ item.name }}</a>
+                                {% else %}
+                                  <a class="site-page" aria-current="page" href="{{ config.base_url }}/{{ item.url }}">{{ item.name }}</a>
+                                {% endif %}
+                                                            </div>
                         {%- endfor %}
                     </div>
               </div>
