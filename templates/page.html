@@ -16,15 +16,35 @@
                         {% else %}
                         <time datetime="{{page.date}}">{{ page.date | date(format="%Y-%m-%d") }}</time>
                     {% endif %}
-                    
                 </div>
-
-                
             </div>
             <article class="post-content" id="article-container">
                 {{ page.content | safe }}
             </article>
-                
         </div>
     </div>
 {% endblock recent_posts %}
+
+
+{% block aside_content_toc %}
+<div class="toc" aria-hidden="true">
+    {% if page.toc %}
+    <ul>
+    {% for h1 in page.toc %}
+        <li>
+            <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+            {% if h1.children %}
+                <ul>
+                    {% for h2 in h1.children %}
+                        <li>
+                            <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}
+  </div>
+{% endblock aside_content_toc %}
