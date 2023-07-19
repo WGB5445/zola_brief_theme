@@ -49,12 +49,14 @@ html {
       padding-left: 2.5rem;
       padding-right: 2.5rem;
       padding-top: 2.5rem;
+      transition: all 0.3s ease;
+
       .recent-posts {
         width: 100%;
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-
+        transition: transform 0.8s ease, opacity 0.8s ease;
         .recent-post-card {
           width: 100%;
           height: 100%;
@@ -105,6 +107,7 @@ html {
       .post-card {
         width: 100%;
         border-radius: 0.5rem;
+        transition: transform 0.8s ease, opacity 0.8s ease;
         @include shadow-brief;
         .post {
           padding: 3rem 2.5rem;
@@ -219,7 +222,7 @@ html {
         max-width: 300px;
         display: flex;
         flex-direction: column;
-
+        transition: transform 0.8s ease, opacity 0.8s ease;
         .card-info {
           display: flex;
           flex-direction: column;
@@ -256,8 +259,8 @@ html {
           flex-direction: column;
           margin-top: 1.75rem;
           position: sticky;
-          top: 2rem;
-
+          top: 0.5rem;
+            gap: 1rem;
           .toc {
             font-size: 0.8rem;
             border-radius: 0.5rem;
@@ -308,6 +311,7 @@ html {
       }
       .page {
         padding: 2.5rem;
+        transition: transform 0.8s ease, opacity 0.8s ease;
         @include shadow-brief;
 
         .category-list-item {
@@ -334,6 +338,26 @@ html {
     a {
       text-decoration: none;
       color: rgb(76 73 72);
+    }
+    .footer-warp{
+      margin-top: 1rem;
+      border-top: 1px solid rgb(31 182 255);
+      padding: 1.5rem 0rem;
+      text-align: center;
+      a{
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 840px) {
+  main {
+    grid-template-columns: 1fr !important;
+
+    .aside-content{
+      display: none !important;
     }
   }
 }
