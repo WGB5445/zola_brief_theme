@@ -13,6 +13,8 @@ html {
     color: rgb(76 73 72);
     margin-left: auto;
     margin-right: auto;
+    padding: 0.5rem 1rem;
+    word-break: break-word;
     .header {
       height: 3rem;
       padding-left: 2.25rem;
@@ -43,14 +45,11 @@ html {
     }
     main {
       max-width: 72rem;
-      display: grid;
-      grid-template-columns: 3fr 1fr;
-      grid-column-gap: 1.75rem;
-      padding-left: 2.5rem;
-      padding-right: 2.5rem;
+      display: flex;
+      width: 100%;
       padding-top: 2.5rem;
       transition: all 0.3s ease;
-
+      gap: 1rem;
       .recent-posts {
         width: 100%;
         display: flex;
@@ -105,90 +104,58 @@ html {
         }
       }
       .post-card {
+        display: flex;
         width: 100%;
         border-radius: 0.5rem;
         transition: transform 0.8s ease, opacity 0.8s ease;
         @include shadow-brief;
         .post {
-          padding: 3rem 2.5rem;
-
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          padding: 3rem 1rem 3rem 2.5rem;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
           .post-title {
             padding: 1.5rem 0rem 1rem;
             border-style: solid;
             border-width: 0 0 1px 0;
             border-bottom-color: rgb(211 220 230);
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
           }
           .post-meta {
-            width: 100%;
             font-size: 90%;
             margin: 0.5rem 0rem;
             color: rgb(133 133 133);
           }
 
           .post-content {
+            width: 100%;
             h1,
             h2,
             h3,
             h4,
             h5,
             h6 {
-              width: 100%;
-              padding: 0.75rem 0.5rem;
-              margin: 0.75rem 0rem;
-              border-width: 0 0 0 0.4rem;
-              border-style: solid;
             }
-
-            h1 {
-              font-size: 1.875rem;
-              line-height: 2.25rem;
-              border-left-color: rgb(237 32 0);
-            }
-
-            h2 {
-              font-size: 1.25rem;
-              line-height: 1.75rem;
-              border-left-color: rgb(255 20 147);
-            }
-
-            h3 {
-              border-left-color: rgb(65 105 225);
-            }
-
-            h4 {
-              border-left-color: rgb(60 179 113);
-            }
-
-            h5 {
-              border-left-color: rgb(255 192 203);
-            }
-            h6 {
-              border-left-color: rgb(255 165 0);
-            }
-
             p {
               margin: 0rem 0rem 1rem 0rem;
             }
 
             pre {
+              // display: block;
               border-radius: 0.5rem;
               border-width: 1px;
               border-style: solid;
               overflow: auto;
-              overflow-wrap: break-word;
               padding: 0.5rem;
-              margin-bottom: 1.5rem;
+              // margin-bottom: 1.5rem;
               line-height: 1.2rem;
               background-color: rgb(211 220 230);
             }
 
             // The line numbers already provide some kind of left/right padding
             pre[data-linenos] {
-              padding: 1rem 0;
+              // padding: 1rem 0;
             }
             pre table td {
               padding: 0;
@@ -200,12 +167,11 @@ html {
             }
             pre mark {
               // If you want your highlights to take the full width.
-              display: block;
+              // display: block;
               // The default background colour of a mark is bright yellow
               background-color: rgba(254, 252, 232, 0.9);
             }
             pre table {
-              width: 100%;
               border-collapse: collapse;
             }
 
@@ -260,7 +226,7 @@ html {
           margin-top: 1.75rem;
           position: sticky;
           top: 0.5rem;
-            gap: 1rem;
+          gap: 1rem;
           .toc {
             font-size: 0.8rem;
             border-radius: 0.5rem;
@@ -339,25 +305,37 @@ html {
       text-decoration: none;
       color: rgb(76 73 72);
     }
-    .footer-warp{
+    .footer-warp {
       margin-top: 1rem;
       border-top: 1px solid rgb(31 182 255);
       padding: 1.5rem 0rem;
       text-align: center;
-      a{
+      a {
         text-decoration: underline;
       }
     }
   }
 }
 
-
 @media (max-width: 840px) {
-  main {
-    grid-template-columns: 1fr !important;
+  body {
+    padding: 0.2rem 0.3rem !important;
 
-    .aside-content{
+    .aside-content {
       display: none !important;
+    }
+
+    .post {
+      padding: 0rem !important;
+      .post-title {
+        padding: 0rem 1rem !important;
+      }
+      .post-meta {
+        padding: 0rem 1rem !important;
+      }
+      .post-content > * {
+        padding: 0rem 1rem !important;
+      }
     }
   }
 }
