@@ -129,7 +129,9 @@ html {
           }
 
           .post-content {
-            width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            // width: 100%;
             h1,
             h2,
             h3,
@@ -143,6 +145,7 @@ html {
 
             pre {
               // display: block;
+              position: relative;
               border-radius: 0.5rem;
               border-width: 1px;
               border-style: solid;
@@ -331,9 +334,6 @@ html {
         padding: 0rem 1rem !important;
       }
       .post-meta {
-        padding: 0rem 1rem !important;
-      }
-      .post-content > * {
         padding: 0rem 1rem !important;
       }
     }
