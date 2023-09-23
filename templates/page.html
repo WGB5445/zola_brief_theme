@@ -1,16 +1,16 @@
 {% extends "index.html" %}
 
 {% block recent_posts %}
-    <div class="post-card">
-        <div class="post">
-            <h1 class="post-title">{{ page.title }}</h1>
-            <div class="post-meta">
-                <div class="meta-firstline">
-                    <span class="post-meta-label">Created</span>
+    <div class="flex w-full rounded-lg transition-all duration-700 shadow-brief hover:shadow-[rgba(7,17,27,0.1)]">
+        <div class="flex flex-col w-full py-12 pl-10 pr-4">
+            <h1 class="box-border pt-6 pb-4 border-solid border-b border-background-gray">{{ page.title }}</h1>
+            <div class="w-full flex flex-col break-words flex-nowrap">
+                <div class="">
+                    <span class="">Created</span>
                     <time datetime="{{page.date}}">{{ page.date | date(format="%Y-%m-%d") }}</time>
                 
-                    <span class="post-meta-separator">|</span>
-                    <span class="post-meta-label">Updated</span>
+                    <span class="">|</span>
+                    <span class="">Updated</span>
                     {% if page.updated %}
                         <time datetime="{{page.updated}}">{{ page.updated | date(format="%Y-%m-%d") }}</time>
                         {% else %}
@@ -18,7 +18,7 @@
                     {% endif %}
                 </div>
             </div>
-            <article class="post-content" id="article-container">
+            <article class="px-4" id="article-container">
                 {{ page.content | safe }}
             </article>
         </div>
@@ -27,7 +27,7 @@
 
 
 {% block aside_content_toc %}
-<div class="toc" aria-hidden="true">
+<div id="toc" aria-hidden="true" class="text-sm rounded-lg px-2 py-6 shadow-brief hover:shadow-[rgba(7,17,27,0.1)]">
     {% if page.toc %}
     <ul>
     {% for h1 in page.toc %}

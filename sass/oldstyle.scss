@@ -6,43 +6,6 @@
 }
 html {
   body {
-    min-width: 250px;
-    max-width: 72rem;
-    line-height: 2rem;
-    transition-duration: 1000ms;
-    color: rgb(76 73 72);
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0.5rem 1rem;
-    word-break: break-word;
-    .header {
-      height: 3rem;
-      padding-left: 2.25rem;
-      padding-right: 2.25rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 3px 8px 6px rgba(7, 17, 27, 0.05);
-      #blog-name {
-        font-weight: 600;
-        font-size: 1.125rem;
-        line-height: 1.75rem;
-      }
-      .nav {
-        height: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 0.875rem;
-        line-height: 1.25rem;
-        .menus_items {
-          height: 100%;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          gap: 1rem;
-        }
-      }
-    }
     main {
       max-width: 72rem;
       display: flex;
@@ -56,52 +19,7 @@ html {
         flex-direction: column;
         gap: 1.5rem;
         transition: transform 0.8s ease, opacity 0.8s ease;
-        .recent-post-card {
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: row;
-          align-content: center;
-          border-radius: 0.5rem;
-          @include shadow-brief;
-          .recent-post-info {
-            width: 100%;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            .article-title {
-              width: 100%;
-              font-size: 1.5rem;
-              line-height: 2rem;
-              overflow: hidden;
-              display: -webkit-box;
-              -webkit-box-orient: vertical;
-              -webkit-line-clamp: 2;
-              color: rgb(31 182 255);
-            }
-
-            .post-meta {
-              width: 100%;
-              display: flex;
-              flex-direction: column;
-              .post-meta-data {
-                width: 100%;
-                font-size: 90%;
-                margin-top: 0.5rem;
-                margin-bottom: 0.5rem;
-                color: rgb(133 133 133);
-                .content {
-                  overflow: hidden;
-                  display: -webkit-box;
-                  -webkit-box-orient: vertical;
-                  -webkit-line-clamp: 2;
-                }
-              }
-            }
-          }
-        }
+ 
       }
       .post-card {
         display: flex;
@@ -130,8 +48,7 @@ html {
           }
 
           .post-content {
-            padding-left: 1rem;
-            padding-right: 1rem;
+             
             // width: 100%;
             h1,
             h2,

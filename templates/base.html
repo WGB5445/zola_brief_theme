@@ -27,15 +27,15 @@
       {% endblock extra_head %}
     </head>
 
-    <body class="{{ config.extra.brief_theme }} {% if config.extra.brief_reverse %}layout-reverse{% endif %}">
+    <body class="{{ config.extra.brief_theme }} max-w-6xl min-w-[15.625rem] mx-auto min-h-[100vh] px-2 py-4 break-words duration-1000 text-brief-font-color">
       {% block header %}
-        <div class="header">
-            <nav class="nav">
-              <span id="blog-name">
+        <div class="h-12 px-9 rounded-lg shadow-brief hover:shadow-[rgba(7,17,27,0.1)]">
+            <nav class="h-full flex flex-row justify-between items-center text-sm">
+              <span class="font-semibold text-lg">
                 <a id="site-name" href="/">{{ config.title }}</a>
               </span>
               <div id="menus">
-                    <div class="menus_items">
+                    <div class="flex flex-row justify-between gap-4">
                         {% for item in config.extra.brief_menus -%}
                             <div class="menus_item">
                                 {% if config.base_url == "/" or config.base_url is containing("127.0.0.1") %}
@@ -52,7 +52,7 @@
       {% endblock header %}
 
       {% block content %}
-        <main>
+        <main class="max-w-6xl flex w-full gap-4 pt-10 transition-all duration-300 ease-in-out">
           {% block main %}
             {% block recent_posts %}
             {% endblock recent_posts %}
