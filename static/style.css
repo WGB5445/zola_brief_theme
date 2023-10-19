@@ -642,6 +642,14 @@ p {
   display: flex;
 }
 
+.grid {
+  display: grid;
+}
+
+.hidden {
+  display: none;
+}
+
 .h-12 {
   height: 3rem;
 }
@@ -680,6 +688,10 @@ p {
 
 .max-w-xs {
   max-width: 20rem;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -931,4 +943,20 @@ p {
 .hover\:shadow-\[rgba\(7\2c 17\2c 27\2c 0\.1\)\]:hover {
   --tw-shadow-color: rgba(7,17,27,0.1);
   --tw-shadow: var(--tw-shadow-colored);
+}
+
+@media (min-width: 768px) {
+  .md\:hidden {
+    display: none;
+  }
+}
+
+@media (min-width: 976px) {
+  .lg\:block {
+    display: block;
+  }
+
+  .lg\:hidden {
+    display: none;
+  }
 }

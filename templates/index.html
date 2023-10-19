@@ -1,8 +1,6 @@
-{% import "macros/recent_post_card.html" as macros_recent_post_card %} 
-{% import "macros/avatar.html" as macros_avater %} 
-{% import "macros/aside_list_item.html" as macros_aside_list_item %} 
-
-{% extends "base.html" %} {% block recent_posts %}
+{% import "macros/recent_post_card.html" as macros_recent_post_card %} {% import
+"macros/avatar.html" as macros_avater %} {% import "macros/aside_list_item.html"
+as macros_aside_list_item %} {% extends "base.html" %} {% block recent_posts %}
 <div
   class="w-full flex flex-col gap-6 transition-transform duration-800 ease-linear"
 >
@@ -11,7 +9,7 @@
 </div>
 {% endblock recent_posts %} {% block aside_content %}
 <div
-  class="min-w-[13.75rem] max-w-xs flex-col transition-all duration-700 block"
+  class="min-w-[13.75rem] max-w-xs flex-col transition-all duration-700 hidden lg:block"
 >
   <div
     class="flex flex-col gap-2 justify-center items-center py-6 px-5 rounded-lg shadow-brief hover:shadow-[rgba(7,17,27,0.1)]"
