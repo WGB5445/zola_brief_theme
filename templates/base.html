@@ -1,71 +1,83 @@
 <!DOCTYPE html>
 <html lang="{{ lang }}">
-    <head>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-      <!-- Enable responsiveness on mobile devices-->
-      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+    <!-- Enable responsiveness on mobile devices-->
+    <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover"
+    />
 
-      <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
 
-      <!-- favicon -->
-      {% if config.extra.brief_favicon %}
-        <link rel="icon" type="image/x-icon" href="{{config.extra.brief_favicon}}">
-      {% endif %}
-      <!-- CSS -->
-      <!-- <link rel="stylesheet" href="{{ get_url(path="print.css", trailing_slash=false) }}" media="print"> -->
-      <link rel="stylesheet" href="{{ get_url(path="style.css", trailing_slash=false) }}">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+    <!-- favicon -->
+    {% if config.extra.brief_favicon %}
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{config.extra.brief_favicon}}"
+    />
+    {% endif %}
+    <!-- CSS -->
+    <!-- <link rel="stylesheet" href="{{ get_url(path="print.css", trailing_slash=false) }}" media="print"> -->
+    <link rel="stylesheet" href="{{ get_url(path="style.css",
+    trailing_slash=false) }}">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface"
+    />
 
-      {% if config.generate_feed %}
-        <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
-      {% endif %}
+    {% if config.generate_feed %} <link rel="alternate" type={% if
+    config.feed_filename == "atom.xml" %}"application/atom+xml"{% else
+    %}"application/rss+xml"{% endif %} title="RSS" href="{{
+    get_url(path=config.feed_filename) | safe }}"> {% endif %} {% block
+    extra_head %} {% endblock extra_head %}
+  </head>
 
-      {% block extra_head %}
-      {% endblock extra_head %}
-    </head>
-
-    <body class="{{ config.extra.brief_theme }} max-w-6xl min-w-[15.625rem] mx-auto min-h-[100vh] px-2 py-4 break-words duration-1000 text-brief-font-color">
-      {% block header %}
-        <div class="h-12 px-9 rounded-lg shadow-brief hover:shadow-[rgba(7,17,27,0.1)]">
-            <nav class="h-full flex flex-row justify-between items-center text-sm">
-              <span class="font-semibold text-lg">
-                <a id="site-name" href="/">{{ config.title }}</a>
-              </span>
-              <div id="menus">
-                    <div class="flex flex-row justify-between gap-4">
-                        {% for item in config.extra.brief_menus -%}
-                            <div class="menus_item">
-                                {% if config.base_url == "/" or config.base_url is containing("127.0.0.1") %}
-                                  <a class="site-page" aria-current="page" href="/{{ item.url }}">{{ item.name }}</a>
-                                {% else %}
-                                  <a class="site-page" aria-current="page" href="{{ config.base_url }}/{{ item.url }}">{{ item.name }}</a>
-                                {% endif %}
-                            </div>
-                        {%- endfor %}
-                    </div>
-              </div>
-            </nav>
+  <body
+    class="{{ config.extra.brief_theme }} max-w-6xl min-w-[15.625rem] mx-auto min-h-[100vh] px-2 py-4 break-words duration-1000 text-brief-font-color"
+  >
+    {% block header %}
+    <div
+      class="h-12 px-9 rounded-lg shadow-brief hover:shadow-[rgba(7,17,27,0.1)]"
+    >
+      <nav class="h-full flex flex-row justify-between items-center text-sm">
+        <span class="font-semibold text-lg">
+          <a id="site-name" href="/">{{ config.title }}</a>
+        </span>
+        <div id="menus">
+          <div class="flex flex-row justify-between gap-4">
+            {% for item in config.extra.brief_menus -%}
+            <div class="menus_item">
+              {% if config.base_url == "/" or config.base_url is
+              containing("127.0.0.1") %}
+              <a class="site-page" aria-current="page" href="/{{ item.url }}"
+                >{{ item.name }}</a
+              >
+              {% else %}
+              <a
+                class="site-page"
+                aria-current="page"
+                href="{{ config.base_url }}/{{ item.url }}"
+                >{{ item.name }}</a
+              >
+              {% endif %}
+            </div>
+            {%- endfor %}
+          </div>
         </div>
-      {% endblock header %}
-
-      {% block content %}
-        <main class="max-w-6xl flex w-full gap-4 pt-10 transition-all duration-300 ease-in-out">
-          {% block main %}
-            {% block recent_posts %}
-            {% endblock recent_posts %}
-            
-            {% block aside_content %}
-            {% endblock aside_content %}
-          {% endblock main %}
-        </main>
-      {% endblock content %}
-      
-      {% block footer %}
-      {% endblock footer %}
-
-    </body>
-
+      </nav>
+    </div>
+    {% endblock header %} {% block content %}
+    <main
+      class="max-w-6xl flex w-full gap-4 pt-10 transition-all duration-300 ease-in-out"
+    >
+      {% block main %} {% block recent_posts %} {% endblock recent_posts %} {%
+      block aside_content %} {% endblock aside_content %} {% endblock main %}
+    </main>
+    {% endblock content %} {% block footer %} {% endblock footer %}
+  </body>
 </html>
