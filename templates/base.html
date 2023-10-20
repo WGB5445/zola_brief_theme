@@ -35,39 +35,70 @@
     %}"application/rss+xml"{% endif %} title="RSS" href="{{
     get_url(path=config.feed_filename) | safe }}"> {% endif %} {% block
     extra_head %} {% endblock extra_head %}
+
+    
   </head>
 
   <body
     class="{{ config.extra.brief_theme }} max-w-6xl min-w-[15.625rem] mx-auto min-h-[100vh] px-2 py-4 break-words duration-1000 text-brief-font-color"
   >
+
     {% block header %}
     <div
-      class="h-12 px-9 rounded-lg shadow-brief hover:shadow-[rgba(7,17,27,0.1)]"
+      class="px-9 rounded-lg shadow-brief hover:shadow-[rgba(7,17,27,0.1)]"
     >
-      <nav class="h-full flex flex-row justify-between items-center text-sm">
-        <span class="font-semibold text-lg">
-          <a id="site-name" href="/">{{ config.title }}</a>
-        </span>
-        <div id="menus">
-          <div class="flex flex-row justify-between gap-4">
-            {% for item in config.extra.brief_menus -%}
-            <div class="menus_item">
-              {% if config.base_url == "/" or config.base_url is
-              containing("127.0.0.1") %}
-              <a class="site-page" aria-current="page" href="/{{ item.url }}"
-                >{{ item.name }}</a
-              >
-              {% else %}
-              <a
-                class="site-page"
-                aria-current="page"
-                href="{{ config.base_url }}/{{ item.url }}"
-                >{{ item.name }}</a
-              >
-              {% endif %}
+      <nav>
+        <div class="h-full flex flex-row justify-between items-center text-sm py-4">
+          <span class="font-semibold text-lg">
+            <a id="site-name" href="/">{{ config.title }}</a>
+          </span>
+          <div id="menus">
+            <div class="hidden md:flex flex-row justify-between gap-4">
+              {% for item in config.extra.brief_menus -%}
+              <div class="menus_item">
+                {% if config.base_url == "/" or config.base_url is
+                containing("127.0.0.1") %}
+                <a class="site-page" aria-current="page" href="/{{ item.url }}"
+                  >{{ item.name }}</a
+                >
+                {% else %}
+                <a
+                  class="site-page"
+                  aria-current="page"
+                  href="{{ config.base_url }}/{{ item.url }}"
+                  >{{ item.name }}</a
+                >
+                {% endif %}
+              </div>
+              {%- endfor %}
             </div>
-            {%- endfor %}
+            <div class="md:hidden flex items-center">
+              <button id="mobile-menu-button">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
           </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+          {% for item in config.extra.brief_menus -%}
+              <div class="">
+                {% if config.base_url == "/" or config.base_url is
+                containing("127.0.0.1") %}
+                <a class="block py-2 px-4 text-sm hover:bg-gray-200" aria-current="page" href="/{{ item.url }}"
+                  >{{ item.name }}</a
+                >
+                {% else %}
+                <a
+                  class="block py-2 px-4 text-sm hover:bg-gray-200"
+                  aria-current="page"
+                  href="{{ config.base_url }}/{{ item.url }}"
+                  >{{ item.name }}</a
+                >
+                {% endif %}
+              </div>
+              {%- endfor %}
         </div>
       </nav>
     </div>
@@ -79,5 +110,18 @@
       block aside_content %} {% endblock aside_content %} {% endblock main %}
     </main>
     {% endblock content %} {% block footer %} {% endblock footer %}
+
+
+    <script>
+      const btn = document.querySelector("#mobile-menu-button");
+      const menu = document.querySelector("#mobile-menu");
+  
+      // add event listeners
+      btn.addEventListener("click", () => {
+        console.log("sdfadfaf")
+        menu.classList.toggle("hidden");
+      });
+  
+    </script>
   </body>
 </html>
