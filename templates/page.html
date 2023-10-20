@@ -2,7 +2,7 @@
 <div
   class="flex w-full rounded-lg transition-all duration-700 shadow-brief hover:shadow-[rgba(7,17,27,0.1)]"
 >
-  <div class="flex flex-col w-full py-12 pl-10 pr-4">
+  <div class="flex flex-col py-12 pl-10 pr-4 prose lg:prose-lg max-w-none">
     <h1
       class="box-border pt-6 pb-4 border-solid border-b border-background-gray"
     >
@@ -40,12 +40,12 @@
   class="text-sm rounded-lg px-2 py-6 shadow-brief hover:shadow-[rgba(7,17,27,0.1)]"
 >
   {% if page.toc %}
-  <ul>
+  <ul class="list-inside list-disc">
     {% for h1 in page.toc %}
     <li>
       <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
       {% if h1.children %}
-      <ul>
+      <ul class="list-inside list-disc">
         {% for h2 in h1.children %}
         <li>
           <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>

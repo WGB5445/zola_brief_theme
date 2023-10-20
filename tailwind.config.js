@@ -2,6 +2,8 @@
 
 import  plugin  from "tailwindcss/plugin";
 
+import typography from '@tailwindcss/typography';
+
 module.exports = {
   content: ["./templates/**/*.{html,js}"],
   theme: {
@@ -20,32 +22,32 @@ module.exports = {
       sans: ['Graphik', 'sans-serif'],
     },
     extend: {
-      typography:{
-        'h1': {
-          "margin": "0",
-          "padding": "0"
-        },
-        'h2': {
-          "margin": "0",
-          "padding": "0"
-        },
-        'h3': {
-          "margin": "0",
-          "padding": "0"
-        },
-        'h4': {
-          "margin": "0",
-          "padding": "0"
-        },
-        'h5': {
-          "margin": "0",
-          "padding": "0"
-        },
-        'h6': {
-          "margin": "0",
-          "padding": "0"
-        },
-      },
+      // typography:{
+      //   'h1': {
+      //     "margin": "0",
+      //     "padding": "0"
+      //   },
+      //   'h2': {
+      //     "margin": "0",
+      //     "padding": "0"
+      //   },
+      //   'h3': {
+      //     "margin": "0",
+      //     "padding": "0"
+      //   },
+      //   'h4': {
+      //     "margin": "0",
+      //     "padding": "0"
+      //   },
+      //   'h5': {
+      //     "margin": "0",
+      //     "padding": "0"
+      //   },
+      //   'h6': {
+      //     "margin": "0",
+      //     "padding": "0"
+      //   },
+      // },
       colors:{
         "brief-font-color": "rgb(76 73 72)",
       },
@@ -64,15 +66,16 @@ module.exports = {
   plugins: [ 
     plugin(function({addBase, theme}){
       addBase({
-        'h1': {margin: theme('margin.0'),padding: theme('padding.0')},
-        'h2': {margin: theme('margin.0'),padding: theme('padding.0')},
-        'h3': {margin: theme('margin.0'),padding: theme('padding.0')},
-        'h4': {margin: theme('margin.0'),padding: theme('padding.0')},
-        'h5': {margin: theme('margin.0'),padding: theme('padding.0')},
-        'h6': {margin: theme('margin.0'),padding: theme('padding.0')},
-        "p": {margin: theme('margin.0'),padding: theme('padding.0')},
+        // 'h1': {margin: theme('margin.0'),padding: theme('padding.0')},
+        // 'h2': {margin: theme('margin.0'),padding: theme('padding.0')},
+        // 'h3': {margin: theme('margin.0'),padding: theme('padding.0')},
+        // 'h4': {margin: theme('margin.0'),padding: theme('padding.0')},
+        // 'h5': {margin: theme('margin.0'),padding: theme('padding.0')},
+        // 'h6': {margin: theme('margin.0'),padding: theme('padding.0')},
+        // "p": {margin: theme('margin.0'),padding: theme('padding.0')},
       })
-    })
+    }),
+    typography
   ],
 
 }
