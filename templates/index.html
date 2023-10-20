@@ -1,88 +1,86 @@
-{% import "macros/recent_post_card.html" as macros_recent_post_card %}
-{% import "macros/avatar.html" as macros_avater %}
-{% import "macros/aside_list_item.html" as macros_aside_list_item %}
-
-{% extends "base.html" %}
-
-{% block recent_posts %}
-    <div class="recent-posts">
-        {%- for page in paginator.pages %}
-            {{macros_recent_post_card::create(page=page, config=config)}}
-        {%- endfor %}
-    </div>
-{% endblock recent_posts %}
-    
-
-{% block aside_content %}
-<div class="aside-content">
-    <div class="card-info">
-        <div class="info">
-            <div class="avatar-img">
-                {% set avater_url = "https://bafkreigk6ekvsnbt4xdczonof7u3rlw2ton4lbszgwxosz2a24jiwc364y.ipfs.infura-ipfs.io/" %}
-                {% set default_avater_url = "https://bafkreigk6ekvsnbt4xdczonof7u3rlw2ton4lbszgwxosz2a24jiwc364y.ipfs.infura-ipfs.io/" %}
-                
-                {% if config.extra.avater_url %}
-                    {% set avater_url = config.extra.avater_url %}
-                {% endif %}
-
-                {% if config.extra.default_avater_url %}
-                    {% set default_avater_url = config.extra.default_avater_url %}
-                {% endif %}
-                {{macros_avater::create(url=avater_url, error_url=default_avater_url)}}
-            </div>
-        </div>
-        <div class="info-data">
-            {% set author = "Author" %}
-            {% if config.extra.author %}
-                {% set author = config.extra.author %}
-            {% endif %}
-            {{author}}
-        </div>
-        <a class="info-description">
-            {% set description = "some description" %}
-            {% if config.extra.description %}
-                {% set description = config.extra.description %}
-            {% endif %}
-            {{description}}
-        </a>
-        <div class="info-social-icons">
-            {% if config.extra.social_links %}
-
-            {% endif %}
-        </div>
-    </div>
-    <div class="card-announcement">
-        
-    </div>
-    <div class="sticky_layout">
-        {% block aside_content_toc %}
-        {% endblock aside_content_toc %}
-        <div class="card-recent-post">
-            <div class="item-headline">
-                <span>最新文章</span>
-            </div>
-            {%- set section_item = get_section(path="_index.md") %}
-            <div class="aside-list">
-                {%- for page in section_item.pages  %}
-                    {{macros_aside_list_item::create(page=page, config=config)}}
-                {%- endfor %}
-            </div>
-        </div>
-    </div>
+{% import "macros/recent_post_card.html" as macros_recent_post_card %} {% import
+"macros/avatar.html" as macros_avater %} {% import "macros/aside_list_item.html"
+as macros_aside_list_item %} {% extends "base.html" %} {% block recent_posts %}
+<div
+  class="w-full flex flex-col gap-6 transition-transform duration-800 ease-linear"
+>
+  {%- for page in paginator.pages %}
+  {{macros_recent_post_card::create(page=page, config=config)}} {%- endfor %}
 </div>
-{% endblock aside_content %}
-
-
-{% block footer %}
-    <footer class="footer">
-        <div class="footer-warp">
-            <div class="footer-copyright">{{config.extra.brief_copyright}}</div>
-            <div class="footer-framework-info">
-                <span>Power By <a href="https://www.getzola.org/" target="_blank">Zola</a></span>
-                <span class="footer-separator">|</span>
-                <span>Theme <a href="https://github.com/WGB5445/zola_brief_theme" target="_blank">Brief</a></span>
-            </div>
-        </div>
-    </footer>
-
+{% endblock recent_posts %} {% block aside_content %}
+<div
+  class="min-w-[13.75rem] max-w-xs flex-col transition-all duration-700 hidden lg:block"
+>
+  <div
+    class="flex flex-col gap-2 justify-center items-center py-6 px-5 rounded-lg shadow-brief hover:shadow-[rgba(7,17,27,0.1)]"
+  >
+    <div id="info">
+      {% set avater_url =
+      "https://bafkreigk6ekvsnbt4xdczonof7u3rlw2ton4lbszgwxosz2a24jiwc364y.ipfs.infura-ipfs.io/"
+      %} {% set default_avater_url =
+      "https://bafkreigk6ekvsnbt4xdczonof7u3rlw2ton4lbszgwxosz2a24jiwc364y.ipfs.infura-ipfs.io/"
+      %} {% if config.extra.avater_url %} {% set avater_url =
+      config.extra.avater_url %} {% endif %} {% if
+      config.extra.default_avater_url %} {% set default_avater_url =
+      config.extra.default_avater_url %} {% endif %}
+      {{macros_avater::create(url=avater_url, error_url=default_avater_url)}}
+    </div>
+    <div id="info-data" class="text-lg font-medium">
+      {% set author = "Author" %} {% if config.extra.author %} {% set author =
+      config.extra.author %} {% endif %} {{author}}
+    </div>
+    <a id="info-description" class="-mt-1">
+      {% set description = "some description" %} {% if config.extra.description
+      %} {% set description = config.extra.description %} {% endif %}
+      {{description}}
+    </a>
+    <div id="info-social-icons">
+      {% if config.extra.social_links %} {% endif %}
+    </div>
+  </div>
+  <div id="card-announcement"></div>
+  <div id="sticky_layout" class="flex flex-col mt-7 sticky top-2 gap-4">
+    {% block aside_content_toc %} {% endblock aside_content_toc %}
+    <div
+      id="card-recent-post"
+      class="rounded-lg py-6 px-5 shadow-brief hover:shadow-[rgba(7,17,27,0.1)]"
+    >
+      <div id="item-headline" class="text-lg font-medium line-clamp-2">
+        <span>最新文章</span>
+      </div>
+      {%- set section_item = get_section(path="_index.md") %}
+      <div id="aside-list" class="flex flex-col gap-5 mt-5">
+        {%- for page in section_item.pages %}
+        {{macros_aside_list_item::create(page=page, config=config)}} {%- endfor
+        %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock aside_content %} {% block footer %}
+<footer class="flex justify-center w-full">
+  <div class="box-border w-full border-t mt-10 border-solid border-blue">
+    <div class="flex flex-col justify-center items-center mt-5">
+      <div id="footer-copyright">{{config.extra.brief_copyright}}</div>
+      <div id="footer-framework-info">
+        <span
+          >Power By
+          <a class="underline" href="https://www.getzola.org/" target="_blank"
+            >Zola</a
+          ></span
+        >
+        <span id="footer-separator">|</span>
+        <span
+          >Theme
+          <a
+            class="underline"
+            href="https://github.com/WGB5445/zola_brief_theme"
+            target="_blank"
+            >Brief</a
+          ></span
+        >
+      </div>
+    </div>
+  </div>
+</footer>
 {% endblock footer %}

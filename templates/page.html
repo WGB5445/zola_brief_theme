@@ -1,50 +1,61 @@
-{% extends "index.html" %}
+{% extends "index.html" %} {% block recent_posts %}
+<div
+  class="flex w-full rounded-lg transition-all duration-700 shadow-brief hover:shadow-[rgba(7,17,27,0.1)]"
+>
+  <div class="flex flex-col py-12 pl-10 pr-4 prose lg:prose-base max-w-none">
+    <h1
+      class="box-border pt-6 pb-4 border-solid border-b border-background-gray"
+    >
+      {{ page.title }}
+    </h1>
+    <div class="w-full flex flex-col break-words flex-nowrap">
+      <div class="">
+        <span class="">Created</span>
+        <time datetime="{{page.date}}"
+          >{{ page.date | date(format="%Y-%m-%d") }}</time
+        >
 
-{% block recent_posts %}
-    <div class="post-card">
-        <div class="post">
-            <h1 class="post-title">{{ page.title }}</h1>
-            <div class="post-meta">
-                <div class="meta-firstline">
-                    <span class="post-meta-label">Created</span>
-                    <time datetime="{{page.date}}">{{ page.date | date(format="%Y-%m-%d") }}</time>
-                
-                    <span class="post-meta-separator">|</span>
-                    <span class="post-meta-label">Updated</span>
-                    {% if page.updated %}
-                        <time datetime="{{page.updated}}">{{ page.updated | date(format="%Y-%m-%d") }}</time>
-                        {% else %}
-                        <time datetime="{{page.date}}">{{ page.date | date(format="%Y-%m-%d") }}</time>
-                    {% endif %}
-                </div>
-            </div>
-            <article class="post-content" id="article-container">
-                {{ page.content | safe }}
-            </article>
-        </div>
+        <span class="">|</span>
+        <span class="">Updated</span>
+        {% if page.updated %}
+        <time datetime="{{page.updated}}"
+          >{{ page.updated | date(format="%Y-%m-%d") }}</time
+        >
+        {% else %}
+        <time datetime="{{page.date}}"
+          >{{ page.date | date(format="%Y-%m-%d") }}</time
+        >
+        {% endif %}
+      </div>
     </div>
-{% endblock recent_posts %}
-
-
-{% block aside_content_toc %}
-<div class="toc" aria-hidden="true">
-    {% if page.toc %}
-    <ul>
-    {% for h1 in page.toc %}
-        <li>
-            <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
-            {% if h1.children %}
-                <ul>
-                    {% for h2 in h1.children %}
-                        <li>
-                            <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        </li>
-    {% endfor %}
-    </ul>
-{% endif %}
+    <article class="px-4" id="article-container">
+      {{ page.content | safe }}
+    </article>
   </div>
+</div>
+{% endblock recent_posts %} {% block aside_content_toc %}
+<div
+  id="toc"
+  aria-hidden="true"
+  class="text-sm rounded-lg px-2 py-6 shadow-brief hover:shadow-[rgba(7,17,27,0.1)]"
+>
+  {% if page.toc %}
+  <ul class="list-inside list-disc">
+    {% for h1 in page.toc %}
+    <li>
+      <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+      {% if h1.children %}
+      <ul class="list-inside list-disc">
+        {% for h2 in h1.children %}
+        <li>
+          <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>
 {% endblock aside_content_toc %}

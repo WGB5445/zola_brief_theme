@@ -1,11 +1,13 @@
 {%- macro create(page, config) %}
-    <div class="aside-list-item">
-        <a class="thumbnail"></a>
-        <div class="content">
-            <a class="title" href="{{ page.permalink | safe }}" title="{{ page.title}}">
-                {{page.title}}
-            </a>
-            <time class="time" datetime="{{page.date}}">{{page.date | truncate(length=10,end="")}}</time>
-        </div>         
-    </div>
+<div id="aside-list-item">
+  <a class="thumbnail"></a>
+  <div id="content" class="flex flex-col text-base">
+    <a class="title" href="{{ page.permalink | safe }}" title="{{ page.title}}">
+      {{page.title}}
+    </a>
+    <time id="time" class="text-xs text-gray" datetime="{{page.date}}"
+      >{{page.date | truncate(length=10,end="")}}</time
+    >
+  </div>
+</div>
 {%- endmacro page_listing %}
